@@ -1,0 +1,63 @@
+#include <stdio.h>
+
+int main()
+{
+    int opt;
+    int val;
+
+    int light = 1;
+    int heater = 2;
+    int air = 4;
+    int camera = 8;
+
+    printf("Entercombined value (1-15): ");
+    scanf("%d", &val);
+    printf("1: Toggle Heater\n2: Turn ON Air\n3: Toggle Light\n4: Check Camera\n-1: Exit\n");
+        printf("Enter option: ");
+        scanf("%d", &opt);
+    
+
+    while (opt!=1)
+    {
+        switch (opt)
+        {
+            case 1:
+                val = val ^ heater;
+                break;
+            case 2:
+                val = val | air;
+                break;
+            case 3:
+                val = val ^ light;
+                break;
+            case 4:
+                if ((val & camera) != 0)
+                {
+                    printf("The camera is ON\n");
+                }
+                else
+                {
+                    printf("The camera is OFF\n");
+                }
+                break;       
+        }
+
+        printf("New combined value is: %d\n", val);
+
+        if ((val & air) != 0 && (val & heater) != 0)
+        {
+            printf("OVERLOAD RISK: Heater and Air Conditioner both are ON!\n");
+        }
+        else
+        {
+            printf("Not Overloaded.\n");
+        }
+       printf("Entercombined value (1-15): ");
+    scanf("%d", &val);
+        printf("1: Toggle Heater\n2: Turn ON Air\n3: Toggle Light\n4: Check Camera\n-1: Exit\n");
+        printf("Enter option: ");
+        scanf("%d", &opt);
+    }
+
+    return 0;
+}
