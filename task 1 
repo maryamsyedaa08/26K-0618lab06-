@@ -1,0 +1,53 @@
+#include<stdio.h>
+int main()
+{ int age;
+  int movie;
+  float rs;
+  int date;
+	printf("Enter your age(enter 0 to exit):");
+	scanf("%d",&age);
+	while(age!=0)
+	{
+		printf("Enter your movie category:\n 1.Regular\n2.3D\n3.Premiere\n");
+		scanf("%d",&movie);
+		switch (movie)
+		{ case 1:
+		     rs=500;
+		 break;
+		 case 2:
+		      rs=800;
+		 break;
+		 case 3:
+		 	  rs=1200;
+		 break;
+		}
+		if(age<13)
+		{ 
+		     rs=rs-(rs*0.30);
+		}
+		else if(age>60)
+		{
+			 rs=rs-(rs*0.70);
+		}
+		else
+		{
+			 printf("invalid input");
+		}
+		
+		printf("Enter date(1-31):");
+		scanf("%d",&date);
+		if(date%5==0)
+		{
+		rs=rs-50;
+	    }
+	    if(rs<100)
+		{
+			rs=100;
+		}
+	    printf("your total bill is:%f",rs);
+	    printf("\n\nEnter your age(enter 0 to exit):");
+	    scanf("%d",&age);
+	
+	}
+	printf("line is empty for the day");
+}
